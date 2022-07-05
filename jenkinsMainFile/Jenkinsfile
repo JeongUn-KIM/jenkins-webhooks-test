@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    tools {
+        go "Go 1.18"
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'pwd'
+                dir('jamie/12Jenkins'){
+                    sh 'pwd'
+                    sh 'go build jenkinsExample.go'
+                    sh 'ls'
+                }
+            }
+            post {
+                success {
+                    echo 'build 성공~'
+                }
+                failure {
+                    echo 'build 실패...'
+                }
+            }
+        }
+        stage('Cron Execute') {
+            steps {
+                dir('jamie/12Jenkins'){
+                    sh './jenkinsExample'
+                }
+            }
+            post {
+                success {
+                    echo 'main 파일 실행 성공~'
+                }
+                failure {
+                    echo '실패...'
+                }
+            }
+        }
+    }
+}
