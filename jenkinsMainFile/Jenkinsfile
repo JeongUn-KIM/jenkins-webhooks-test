@@ -7,11 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'pwd'
-                dir('jenkinsMainFile'){
-                    sh 'pwd'
-                    sh 'go build jenkinsExample.go'
-                    sh 'ls'
-                }
+                sh 'go build jenkinsExample.go'
+                sh 'ls'
             }
             post {
                 success {
@@ -24,9 +21,7 @@ pipeline {
         }
         stage('Cron Execute') {
             steps {
-                dir('jenkinsMainFile'){
                     sh './jenkinsExample'
-                }
             }
             post {
                 success {
