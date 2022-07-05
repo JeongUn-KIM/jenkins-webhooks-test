@@ -17,5 +17,6 @@ func runCron() {
 }
 
 func main() {
+	fmt.Println("Push 하면 자동 빌드~")
 	runCron()
 }
