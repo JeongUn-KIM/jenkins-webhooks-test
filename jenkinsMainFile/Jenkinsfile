@@ -4,13 +4,12 @@ pipeline {
         go "Go 1.18"
     }
     stages {
-//         stage('Checkout') {
-//             steps {
-//                 git branch: 'master',
-//                     credentialsId: 'JeongUn-KIM',
-//                     url: 'https://github.com/JeongUn-KIM/jenkins-webhooks-test.git'
-//             }
-//         }
+        stage('Checkout') {
+            steps {
+                git branch: 'master',
+                    url: 'https://github.com/JeongUn-KIM/jenkins-webhooks-test.git'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'pwd'
