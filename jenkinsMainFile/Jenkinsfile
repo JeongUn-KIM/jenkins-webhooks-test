@@ -18,7 +18,7 @@ pipeline {
             }
             post {
                 success {
-                    echo 'build 성공~'
+                    echo 'build 성공!!'
                 }
                 failure {
                     echo 'build 실패...'
