@@ -9,7 +9,7 @@ import (
 func runCron() {
 	s := gocron.NewScheduler(time.UTC)
 	s.Every("5s").Do(func() {
-		fmt.Println("5초마다 반복")
+		fmt.Println("5초마다 반복 ")
 	})
 
 	s.StartAsync()
